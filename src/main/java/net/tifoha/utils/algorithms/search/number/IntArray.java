@@ -3,11 +3,11 @@ package net.tifoha.utils.algorithms.search.number;
 /**
  * @author Vitalii Sereda
  */
-public class IntSets {
+public class IntArray {
     private final int[] ints;
     private final int size;
 
-    public IntSets(int size) {
+    public IntArray(int size) {
         this.size = size;
         ints = new int[this.size];
     }
