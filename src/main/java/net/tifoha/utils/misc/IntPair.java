@@ -1,9 +1,11 @@
-package net.tifoha.utils.algorithms.misc;
+package net.tifoha.utils.misc;
+
+import java.io.Serializable;
 
 /**
  * @author Vitalii Sereda
  */
-public interface IntPair {
+public interface IntPair extends Serializable {
     int getFirst();
 
     int getSecond();

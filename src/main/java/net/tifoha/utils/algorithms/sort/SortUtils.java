@@ -1,8 +1,8 @@
 package net.tifoha.utils.algorithms.sort;
 
-import net.tifoha.utils.algorithms.misc.IntPair;
 import net.tifoha.utils.algorithms.sort.comparator.IntComparator;
 import net.tifoha.utils.algorithms.sort.comparator.LongComparator;
+import net.tifoha.utils.misc.IntPair;
 
 import java.util.Comparator;
 
@@ -46,13 +46,6 @@ public class SortUtils {
     }
 
     /**
-     * is a > b ?
-     */
-    public static <T> boolean more(T a, T b, Comparator<T> comparator) {
-        return comparator.compare(a, b) > 0;
-    }
-
-    /**
      * is a < b ?
      *
      * @param a
@@ -61,6 +54,27 @@ public class SortUtils {
      */
     public static boolean less(int a, int b) {
         return a < b;
+    }
+
+    /**
+     * is a > b ?
+     */
+    public static <T> boolean more(T a, T b, Comparator<T> comparator) {
+        return comparator.compare(a, b) > 0;
+    }
+
+    /**
+     * is a > b ?
+     */
+    public static boolean more(int a, int b, IntComparator comparator) {
+        return comparator.compare(a, b) > 0;
+    }
+
+    /**
+     * is a > b ?
+     */
+    public static boolean more(long a, long b, LongComparator comparator) {
+        return comparator.compare(a, b) > 0;
     }
 
     // exchange a[i] and a[j]
@@ -276,6 +290,52 @@ public class SortUtils {
         return IntPair.simple(j, i);
     }
 
+    public static int binarySearch(int[] a, int key) {
+        return binarySearch(a, 0, a.length - 1, key, Integer::compare);
+    }
+
+    public static int binarySearch(int[] a, int lo, int hi, int key, IntComparator comparator) {
+        int low = lo;
+        int high = hi;
+
+        while (low <= high) {
+            int mid = (low + high) >>> 1;
+            int midVal = a[mid];
+
+            if (less(midVal, key, comparator)) {
+                low = mid + 1;
+            } else if (more(midVal, key, comparator))
+                high = mid - 1;
+            else
+                return mid; // key found
+        }
+        return -(low + 1);  // key not found.
+
+    }
+
+    public static int binarySearch(long[] a, long key) {
+        return binarySearch(a, 0, a.length - 1, key, Long::compare);
+    }
+
+    public static int binarySearch(long[] a, int lo, int hi, long key, LongComparator comparator) {
+        int low = lo;
+        int high = hi;
+
+        while (low <= high) {
+            int mid = (low + high) >>> 1;
+            long midVal = a[mid];
+
+            if (less(midVal, key, comparator)) {
+                low = mid + 1;
+            } else if (more(midVal, key, comparator))
+                high = mid - 1;
+            else
+                return mid; // key found
+        }
+        return -(low + 1);  // key not found.
+
+    }
+
     private static <T extends Comparable<T>> int getMedianIndex(T[] a, int lo, int hi) {
         int m;
         int n = hi - lo + 1;
@@ -375,22 +435,31 @@ public class SortUtils {
     public static void main(String[] args) {
 //        Integer[] a1 = {1, 2, 4, 6, 1, 2, 3, 5, 7, 8, 9};
 //        Integer[] a1 = {1, 2, 4, 6, 1, 2, 3, 5};
-//        Integer[] a2 = {1, 2, 3, 5, 7, 8, 9};
-//        merge2(a1, 0, 3, a1.length - 1);
-//        System.out.println(Arrays.toString(a1));
-//        int n = 1000000;
-        int trails = 100_000;
-//        int trails = 100;
-        for (int n = 2; n < 1_0_000_000; n *= 2) {
-            int lo = 0;
-            int mid = lo + n / 2;
-            int hi = n - 1;
-
-//            System.out.printf("%6d: merge->%s\tmerge2->%s%n",
-//                    n,
-//                    timeRandomInput(a -> merge(a, new Double[a.length], lo, mid, hi), n, trails),
-//                    timeRandomInput(a -> merge(a, lo, mid, hi), n, trails));
+        int[] a2 = {1, 2, 3, 5, 7, 8, 9};
+        Integer value = null;
+        int index = binarySearch(a2, 1);
+        if (index >= 0) {
+            value = a2[index];
+        } else if (index < -1) {
+            index = -(index + 2);
+            value = a2[index];
         }
+        System.out.println(value);
+////        merge2(a1, 0, 3, a1.length - 1);
+////        System.out.println(Arrays.toString(a1));
+////        int n = 1000000;
+//        int trails = 100_000;
+////        int trails = 100;
+//        for (int n = 2; n < 1_0_000_000; n *= 2) {
+//            int lo = 0;
+//            int mid = lo + n / 2;
+//            int hi = n - 1;
+//
+////            System.out.printf("%6d: merge->%s\tmerge2->%s%n",
+////                    n,
+////                    timeRandomInput(a -> merge(a, new Double[a.length], lo, mid, hi), n, trails),
+////                    timeRandomInput(a -> merge(a, lo, mid, hi), n, trails));
+//        }
     }
 
     public static void swim(int[] heap, int index) {

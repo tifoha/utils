@@ -1,11 +1,9 @@
 package net.tifoha.utils.algorithms.sort.insertion;
 
-import net.tifoha.utils.algorithms.profile.CyclicStopwatch;
 import net.tifoha.utils.algorithms.sort.comparator.IntComparator;
 import net.tifoha.utils.algorithms.sort.comparator.LongComparator;
 
 import java.util.Comparator;
-import java.util.Random;
 
 /**
  * The {@code Insertion} class provides static methods for sorting an
@@ -33,7 +31,7 @@ public class InsertionArrayCopy {
      * @param a the array to be sorted
      */
     public static void sort(Comparable[] a, int lo, int hi) {
-        for (int i = lo; i < hi; i++) {
+        for (int i = lo; i < hi+1; i++) {
             Comparable v = a[i];
             int j = i;
             while (j > 0 && less(v, a[j - 1])) {
@@ -71,7 +69,7 @@ public class InsertionArrayCopy {
      * @param a the array to be sorted
      */
     public static void sort(Comparable[] a) {
-        sort(a, 0, a.length);
+        sort(a, 0, a.length-1);
     }
 
     /**
@@ -81,7 +79,7 @@ public class InsertionArrayCopy {
      * @param comparator the comparator specifying the order
      */
     public static void sort(Object[] a, Comparator comparator) {
-        sort(a, 0, a.length, comparator);
+        sort(a, 0, a.length-1, comparator);
     }
 
     /**
@@ -93,7 +91,7 @@ public class InsertionArrayCopy {
      * @param comparator the comparator specifying the order
      */
     public static void sort(Object[] a, int lo, int hi, Comparator comparator) {
-        for (int i = lo; i < hi; i++) {
+        for (int i = lo; i < hi+1; i++) {
             Object v = a[i];
             int j = i;
             while (j > 0 && less(v, a[j - 1], comparator)) {
@@ -106,7 +104,7 @@ public class InsertionArrayCopy {
         }
     }
 
-   /**
+    /**
      * Rearranges the subarray a[lo..hi) in ascending order, using a comparator.
      *
      * @param a          the array
@@ -115,7 +113,7 @@ public class InsertionArrayCopy {
      * @param comparator the comparator specifying the order
      */
     public static void sort(int[] a, int lo, int hi, IntComparator comparator) {
-        for (int i = lo; i < hi; i++) {
+        for (int i = lo; i < hi+1; i++) {
             int v = a[i];
             int j = i;
             while (j > 0 && less(v, a[j - 1], comparator)) {
@@ -128,7 +126,7 @@ public class InsertionArrayCopy {
         }
     }
 
-   /**
+    /**
      * Rearranges the subarray a[lo..hi) in ascending order, using a comparator.
      *
      * @param a          the array
@@ -137,7 +135,7 @@ public class InsertionArrayCopy {
      * @param comparator the comparator specifying the order
      */
     public static void sort(long[] a, int lo, int hi, LongComparator comparator) {
-        for (int i = lo; i < hi; i++) {
+        for (int i = lo; i < hi + 1; i++) {
             long v = a[i];
             int j = i;
             while (j > 0 && less(v, a[j - 1], comparator)) {

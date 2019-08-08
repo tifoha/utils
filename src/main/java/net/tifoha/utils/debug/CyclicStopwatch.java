@@ -1,4 +1,4 @@
-package net.tifoha.utils.algorithms.profile;
+package net.tifoha.utils.debug;
 
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;

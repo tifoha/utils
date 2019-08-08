@@ -1,6 +1,6 @@
 package net.tifoha.utils.algorithms.sort.quick;
 
-import net.tifoha.utils.algorithms.misc.IntPair;
+import net.tifoha.utils.misc.IntPair;
 import net.tifoha.utils.algorithms.sort.comparator.IntComparator;
 import net.tifoha.utils.algorithms.sort.comparator.LongComparator;
 import net.tifoha.utils.algorithms.sort.insertion.InsertionArrayCopy;

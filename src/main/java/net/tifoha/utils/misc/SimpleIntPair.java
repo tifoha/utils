@@ -1,4 +1,4 @@
-package net.tifoha.utils.algorithms.misc;
+package net.tifoha.utils.misc;
 
 /**
  * @author Vitalii Sereda
