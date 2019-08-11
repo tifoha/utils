@@ -1,7 +1,9 @@
 package net.tifoha.utils.io;
 
 import lombok.Getter;
+import org.slf4j.Logger;
 
+import java.io.Closeable;
 import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.math.BigDecimal;
@@ -71,6 +73,38 @@ public class IoUtils {
                 throw new UncheckedIOException("Unable to create parent directories of " + path, e);
             }
         }
+    }
+
+    /**
+     * Close {@link Closeable} resource.
+     *
+     * @param closeables
+     *            {@link Closeable} array
+     */
+    public static void close(final AutoCloseable... closeables) {
+        close(null, closeables);
+    }
+
+    /**
+     * Close {@link Closeable} resource.
+     *
+     * @param logger
+     *            {@link Logger} instance, can be <code>null</code> if logging not required
+     * @param closeables
+     *            {@link Closeable} array
+     */
+    public static void close(final Logger logger, final AutoCloseable... closeables) {
+        if (closeables == null || closeables.length == 0)
+            return;
+
+        for (final AutoCloseable c : closeables)
+            if (c != null)
+                try {
+                    c.close();
+                } catch (final Exception e) {
+                    if (logger != null && logger.isDebugEnabled())
+                        logger.debug("Closing[" + c + "] fail", e);
+                }
     }
 
     public static void main(String[] args) {
