@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.LongStream;
+import java.util.stream.Stream;
 
 import static net.tifoha.utils.io.IoUtils.close;
 
@@ -126,5 +127,7 @@ public interface SerializationHelper {
 		long deserializeLong();
 
 		LongStream longStream();
-	}
+
+        <T> Stream<T> objectStream(Class<T> type);
+    }
 }

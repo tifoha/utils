@@ -7,8 +7,9 @@ public class CyclicStopwatch {
     long nanos = 0;
     private long start = -1;
 
-    public void start() {
+    public CyclicStopwatch start() {
         start = System.nanoTime();
+        return this;
     }
 
     public void stop() {
