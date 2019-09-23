@@ -12,18 +12,20 @@ public class CyclicStopwatch {
         return this;
     }
 
-    public void stop() {
+    public CyclicStopwatch stop() {
         if (start < 0) {
             throw new IllegalArgumentException();
         }
 
         nanos += System.nanoTime() - start;
         start = -1;
+        return this;
     }
 
-    public void reset() {
+    public CyclicStopwatch reset() {
         nanos = 0;
         start = -1;
+        return this;
     }
 
     public long getNanos() {
@@ -44,5 +46,13 @@ public class CyclicStopwatch {
 
     public Duration getDuration() {
         return Duration.ofNanos(nanos);
+    }
+
+    public static CyclicStopwatch create() {
+        return new CyclicStopwatch();
+    }
+
+    public static CyclicStopwatch createAndStart() {
+        return create().start();
     }
 }

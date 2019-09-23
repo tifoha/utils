@@ -167,6 +167,12 @@ public class FstSerializationHelper implements SerializationHelper {
 			Spliterator.OfLong ofLong = Spliterators.spliterator(new LongIterator(delegate), 0, 0);
 			return StreamSupport.longStream(ofLong, false);
 		}
+
+		@Override
+		public <T> Stream<T> objectStream(Class<T> type) {
+			Spliterator<T> spliterator = Spliterators.spliterator(new ObjectIterator(delegate, type), 0, 0);
+			return StreamSupport.stream(spliterator, false);
+		}
 	}
 
 	@AllArgsConstructor
@@ -189,6 +195,36 @@ public class FstSerializationHelper implements SerializationHelper {
 					return input.readLong();
 				} catch (IOException e) {
 					throw new UncheckedIOException(e);
+				}
+			} else {
+				throw new NoSuchElementException();
+			}
+		}
+	}
+
+	@AllArgsConstructor
+	public static class ObjectIterator<T> implements Iterator<T> {
+		private final FSTObjectInput input;
+		private final Class type;
+
+		@Override
+		public boolean hasNext() {
+			try {
+				return input.available() > 0;
+			} catch (IOException e) {
+				return false;
+			}
+		}
+
+		@Override
+		public T next() {
+			if (hasNext()) {
+				try {
+					return (T) input.readObject(type);
+				} catch (IOException e) {
+					throw new UncheckedIOException(e);
+				} catch (Exception e) {
+					throw new RuntimeException(e);
 				}
 			} else {
 				throw new NoSuchElementException();
