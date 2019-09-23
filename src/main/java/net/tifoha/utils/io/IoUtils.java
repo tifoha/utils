@@ -32,6 +32,14 @@ public class IoUtils {
         return SizeUnit.EB.toString(bytes);
     }
 
+    public static boolean isWrongFile(Path path) {
+        try {
+            return !Files.exists(path) || isDirectory(path) || Files.size(path) == 0;
+        } catch (IOException e) {
+            throw new UncheckedIOException(e);
+        }
+    }
+
     @Getter
     public enum SizeUnit {
         B(1L, "Bytes"),
