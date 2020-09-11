@@ -3,9 +3,6 @@ package net.tifoha.utils.algorithms.search.graph;
 import java.util.Collection;
 import java.util.stream.Stream;
 
-/**
- * @author Vitalii Sereda
- */
 public class Test {
     public static void main(String[] args) {
         CharMatrix matrix = CharMatrix

@@ -13,9 +13,6 @@ import java.nio.file.Path;
 import static java.math.RoundingMode.HALF_UP;
 import static java.nio.file.Files.isDirectory;
 
-/**
- * @author Vitalii Sereda
- */
 public class IoUtils {
     private static final BigDecimal THESHOLD = new BigDecimal(1000);
 

@@ -5,9 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @author Vitalii Sereda
- */
 public class ObjectAhoCorasick implements StringSearcher{
     private final Node root;
 

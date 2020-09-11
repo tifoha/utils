@@ -10,9 +10,6 @@ import java.util.stream.LongStream;
 
 import static java.lang.Integer.compareUnsigned;
 
-/**
- * @author Vitalii Sereda
- */
 public class ArrayIntervalTree {
     private static final LongComparator COMPARATOR = (a, b) -> {
         int al = (int) (a >> 32);

@@ -9,9 +9,6 @@ import java.util.function.LongConsumer;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 
-/**
- * @author Vitalii Sereda
- */
 @Slf4j
 @RequiredArgsConstructor
 public class LongStreamProfiler implements LongConsumer {

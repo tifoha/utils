@@ -1,8 +1,5 @@
 package net.tifoha.utils.misc;
 
-/**
- * @author Vitalii Sereda
- */
 public class SimpleIntPair implements IntPair {
     private final int first;
     private final int second;

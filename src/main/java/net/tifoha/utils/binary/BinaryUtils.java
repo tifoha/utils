@@ -1,8 +1,5 @@
 package net.tifoha.utils.binary;
 
-/**
- * @author Vitalii Sereda
- */
 public class BinaryUtils {
     private BinaryUtils() {
     }

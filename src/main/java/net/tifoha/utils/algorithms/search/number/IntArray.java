@@ -1,8 +1,5 @@
 package net.tifoha.utils.algorithms.search.number;
 
-/**
- * @author Vitalii Sereda
- */
 public class IntArray {
     private final int[] ints;
     private final int size;

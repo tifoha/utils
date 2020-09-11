@@ -7,9 +7,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
 import java.util.stream.IntStream;
 
-/**
- * @author Vitalii Sereda
- */
 @Slf4j
 @RequiredArgsConstructor
 public class StreamProfiler<T> implements Consumer<T> {

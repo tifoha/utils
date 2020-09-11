@@ -2,9 +2,6 @@ package net.tifoha.utils.misc;
 
 import net.tifoha.utils.binary.BinaryUtils;
 
-/**
- * @author Vitalii Sereda
- */
 public class CompactIntPair implements IntPair {
     private final long value;
 

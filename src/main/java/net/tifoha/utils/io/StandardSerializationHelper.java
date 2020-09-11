@@ -6,9 +6,6 @@ import lombok.Getter;
 
 import java.io.*;
 
-/**
- * @author Vitalii Sereda
- */
 @Getter
 @Builder
 @AllArgsConstructor

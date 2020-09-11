@@ -9,9 +9,6 @@ import java.util.stream.Stream;
 
 import static net.tifoha.utils.io.IoUtils.close;
 
-/**
- * @author Vitalii Sereda
- */
 public interface SerializationHelper {
 	/**
 	 * Clone {@link Serializable} <T> {@link Collection}.

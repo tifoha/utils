@@ -14,9 +14,6 @@ import java.util.stream.LongStream;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
-/**
- * @author Vitalii Sereda
- */
 @Getter
 public class FstSerializationHelper implements SerializationHelper {
 	private static final int DEFAULT_BUFFER_SIZE = 512;

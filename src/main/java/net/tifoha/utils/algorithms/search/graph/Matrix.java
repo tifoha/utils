@@ -6,9 +6,6 @@ import java.util.function.ToIntFunction;
 
 import static java.lang.Math.*;
 
-/**
- * @author Vitalii Sereda
- */
 public abstract class Matrix<T> {
     protected final T[] data;
     private final int size;

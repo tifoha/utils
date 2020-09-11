@@ -1,9 +1,5 @@
 package net.tifoha.utils.algorithms.search.string;
 
-/**
- * @author Vitalii Sereda
- */
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

@@ -17,8 +17,7 @@ import java.util.Comparator;
  * <p>
  * The sorting algorithm is stable and uses O(1) extra memory.
  *
- * @author Vitalii Sereda
- */
+*/
 public class InsertionArrayCopy {
 
     // This class should not be instantiated.

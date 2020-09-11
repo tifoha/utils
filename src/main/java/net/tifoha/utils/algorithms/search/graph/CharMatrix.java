@@ -3,9 +3,6 @@ package net.tifoha.utils.algorithms.search.graph;
 import java.util.function.Predicate;
 import java.util.function.ToIntFunction;
 
-/**
- * @author Vitalii Sereda
- */
 public class CharMatrix extends Matrix<Character> {
     private CharMatrix(Character[] data, ToIntFunction<Character> costDetector, Predicate<Character> wallTester) {
         super(data, costDetector, wallTester);

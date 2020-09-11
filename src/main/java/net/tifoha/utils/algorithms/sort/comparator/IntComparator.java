@@ -1,8 +1,5 @@
 package net.tifoha.utils.algorithms.sort.comparator;
 
-/**
- * @author Vitalii Sereda
- */
 @FunctionalInterface
 public interface IntComparator {
     IntComparator NATURAL_ORDER_COMPARATOR = Integer::compare;

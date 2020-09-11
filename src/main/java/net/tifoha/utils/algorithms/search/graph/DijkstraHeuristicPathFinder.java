@@ -3,9 +3,6 @@ package net.tifoha.utils.algorithms.search.graph;
 import java.util.*;
 import java.util.function.ToDoubleBiFunction;
 
-/**
- * @author Vitalii Sereda
- */
 public class DijkstraHeuristicPathFinder<T> extends DijkstraPathFinder<T> {
     protected final ToDoubleBiFunction<GraphEntry<T>, GraphEntry<T>> heuristicFunction;
 

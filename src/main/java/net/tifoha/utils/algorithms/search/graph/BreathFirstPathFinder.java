@@ -2,9 +2,6 @@ package net.tifoha.utils.algorithms.search.graph;
 
 import java.util.*;
 
-/**
- * @author Vitalii Sereda
- */
 public class BreathFirstPathFinder<T> implements PathFinder<T>{
     public static void main(String[] args) {
         CharMatrix matrix = CharMatrix

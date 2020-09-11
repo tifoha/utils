@@ -2,9 +2,6 @@ package net.tifoha.utils.misc;
 
 import java.io.Serializable;
 
-/**
- * @author Vitalii Sereda
- */
 public interface IntPair extends Serializable {
     int getFirst();
 
